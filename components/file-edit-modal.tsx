@@ -80,7 +80,7 @@ export function FileEditModal({ isOpen, onClose, sharedWithMe }: FileEditModalPr
           body: file,
         })
 
-        newFileUrl = `https://${process.env.NEXT_PUBLIC_AWS_BUCKET_NAME}.s3.${process.env.NEXT_PUBLIC_AWS_REGION}.amazonaws.com/${newFileKey}`
+        newFileUrl = `https://${process.env.AWS_BUCKET_NAME}.s3.${process.env.AWS_REGION}.amazonaws.com/${newFileKey}`
       }
 
       // Check if title and description actually changed

@@ -91,7 +91,7 @@ export function FileUploadModal({ isOpen, onClose }: FileUploadModalProps) {
       });
 
       // Step 3: Construct Firestore record
-      const fileUrl = `https://${process.env.NEXT_PUBLIC_AWS_BUCKET_NAME}.s3.${process.env.NEXT_PUBLIC_AWS_REGION}.amazonaws.com/${fileKey}`;
+      const fileUrl = `https://${process.env.AWS_BUCKET_NAME}.s3.${process.env.AWS_REGION}.amazonaws.com/${fileKey}`;
       const newFileRecord = {
         id: uuidv4(), // Generate a random unique ID
         file: fileUrl,

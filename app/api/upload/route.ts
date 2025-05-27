@@ -3,10 +3,10 @@ import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 import { v4 as uuidv4 } from "uuid";
 
 const s3 = new S3Client({
-  region: process.env.NEXT_PUBLIC_AWS_REGION!,
+  region: process.env.AWS_REGION!,
   credentials: {
-    accessKeyId: process.env.NEXT_PUBLIC_AWS_ACCESS_KEY!,
-    secretAccessKey: process.env.NEXT_PUBLIC_AWS_SECRET_KEY!,
+    accessKeyId: process.env.AWS_ACCESS_KEY!,
+    secretAccessKey: process.env.AWS_SECRET_KEY!,
   },
 });
 
@@ -22,7 +22,7 @@ export async function POST(req: Request) {
 
     const fileKey = `uploads/${userId}/${uuidv4()}.${fileType.split("/")[1]}`;
     const params = {
-      Bucket: process.env.NEXT_PUBLIC_AWS_BUCKET_NAME!,
+      Bucket: process.env.AWS_BUCKET_NAME!,
       Key: fileKey,
       ContentType: fileType,
     };
